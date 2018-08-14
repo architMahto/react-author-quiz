@@ -15,12 +15,25 @@ class AddAuthor extends Component {
 		this.state = {
 			author: {
 				name: '',
-				imageUrl: ''
+				imageUrl: '',
+				books: [],
+				bookInput: ''
 			},
 		};
 
+		this.handleBookAddition = this.handleBookAddition.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.onFieldChange = this.onFieldChange.bind(this);
+	}
+
+	handleBookAddition(event) {
+		this.setState({
+			author: {
+				...this.state.author,
+				books: this.state.author.books.concat([this.state.author.bookInput]),
+				bookInput: ''
+			}
+		})
 	}
 
 	handleSubmit(event) {
@@ -31,26 +44,21 @@ class AddAuthor extends Component {
 		const field = event.target.name;
 		const value = event.target.value;
 
-		console.log('field:', field);
-		console.log('value:', value);
-
 		this.setState({
-			...this.state,
 			author: {
 				...this.state.author,
 				[field]: value
 			}
 		});
-
-		console.log('this.state:', this.state);
 	}
 
 	render() {
 		return (
 			<AddAuthorForm author={this.state.author}
 										 match={this.match}
+										 handleBookAddition={this.handleBookAddition}
 										 handleSubmit={this.handleSubmit}
-										 onFieldChange={this.onFieldChange}/>
+										 onFieldChange={this.onFieldChange} />
 		)
 	}
 }
