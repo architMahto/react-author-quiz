@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Continue from '../Components/Continue';
 import Footer from '../Components/Footer';
@@ -51,6 +52,7 @@ class AuthorQuiz extends Component {
 						  highlight={this.state.highlight}
 						  onAnswerSelected={this.onAnswerSelected}/>
 				<Continue />
+				<Link to={'/add-author'}>Add Author</Link>
 				<Footer />
 			</div>
 		)
