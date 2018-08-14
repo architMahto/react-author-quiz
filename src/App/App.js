@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import AuthorQuiz from '../Components/AuthorQuiz';
+import AuthorQuiz from '../Pages/AuthorQuiz';
 
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class App extends Component {
   render() {
     return (
-    	<AuthorQuiz />
+    	<Switch>
+				<Route exact path="/" component={AuthorQuiz} />
+			</Switch>
     );
   }
 }
