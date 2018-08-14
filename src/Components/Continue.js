@@ -4,9 +4,7 @@ import './Continue.css';
 
 const Continue = () => {
 	return (
-		<div>
-			Continue
-		</div>
+		<div/>
 	)
 };
 

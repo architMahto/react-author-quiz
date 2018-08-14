@@ -1,0 +1,14 @@
+$border-color: #D0E3F0;
+
+.Answer {
+	background-color: #F0F7FD;
+	border-color: $border-color;
+	border-left: 5px solid $border-color;
+	cursor: pointer;
+	margin-bottom: 20px;
+	padding: 15px 30px 15px 15px;
+
+	&:hover {
+		background-color: $border-color;
+	}
+}
