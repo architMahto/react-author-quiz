@@ -17,13 +17,15 @@ class AuthorQuiz extends Component {
 			turnData: {
 				author: '',
 				books: []
-			}
+			},
+			highlight: ''
 		};
 	}
 
 	componentDidMount() {
 		this.setState({
-			turnData: AuthorsApi.getTurnData()
+			turnData: AuthorsApi.getTurnData(),
+			highlight: ''
 		})
 	}
 
@@ -32,7 +34,8 @@ class AuthorQuiz extends Component {
 			<div className="container-fluid">
 				<Hero />
 				<Turn author={this.state.turnData.author}
-							books={this.state.turnData.books} />
+							books={this.state.turnData.books}
+						 highlight={this.state.highlight} />
 				<Continue />
 				<Footer />
 			</div>
