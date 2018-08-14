@@ -5,7 +5,7 @@ import Footer from './Footer';
 import Hero from './Hero';
 import Turn from './Turn';
 
-import { Authors } from '../Data/Authors';
+import AuthorsApi from '../Api/AuthorsApi';
 
 import './AuthorQuiz.css'
 
@@ -15,20 +15,17 @@ class AuthorQuiz extends Component {
 
 		this.state = {
 			turnData: {
-				author: Authors[0],
-				books: Authors[0].books
+				author: '',
+				books: []
 			}
 		};
 	}
 
-	// componentDidMount() {
-	// 	this.setState({
-	// 		turnData: {
-	// 			author: Authors[0],
-	// 			books: Authors[0].books
-	// 		}
-	// 	})
-	// }
+	componentDidMount() {
+		this.setState({
+			turnData: AuthorsApi.getTurnData()
+		})
+	}
 
 	render() {
 		return (
