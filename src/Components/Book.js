@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Book.css';
 
-const Book = ({ title, key }) => {
+const Book = ({ title, onClick }) => {
 	return (
-		<h4 className="Answer">{ title }</h4>
+		<h4 className="Answer" onClick={() => { onClick(title); }}>{ title }</h4>
 	);
 };
 

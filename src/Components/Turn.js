@@ -11,7 +11,7 @@ const HIGHLIGHT_BG_COLOR_MAPPING = {
 	'wrong': 'red'
 };
 
-const Turn = ({ author, books, highlight }) => {
+const Turn = ({ author, books, highlight, onAnswerSelected }) => {
 	return (
 		<Grid fluid={true}>
 			<Row className="Turn" style={{backgroundColor: HIGHLIGHT_BG_COLOR_MAPPING[highlight]}}>
@@ -19,7 +19,7 @@ const Turn = ({ author, books, highlight }) => {
 					<Image className="Author-Image" src={author.imageUrl} alt="Author" responsive rounded />
 				</Col>
 				<Col xs={12} sm={6}>
-					{books.map(title => (<Book title={title} key={title} />))}
+					{books.map(title => (<Book title={title} key={title} onClick={onAnswerSelected} />))}
 				</Col>
 			</Row>
 		</Grid>
