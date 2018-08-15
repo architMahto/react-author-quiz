@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Grid, Image, Row } from 'react-bootstrap';
+import { Col, Image, Row } from 'react-bootstrap';
 
 import Book from './Book';
 
@@ -7,8 +7,8 @@ import './Turn.css';
 
 const HIGHLIGHT_BG_COLOR_MAPPING = {
 	'none': 'white',
-	'correct': 'green',
-	'wrong': 'red'
+	'correct': '#449d44',
+	'wrong': '#c9302c'
 };
 
 const Turn = ({ author, books, highlight, onAnswerSelected }) => {

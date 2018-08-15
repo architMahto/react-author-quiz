@@ -26,6 +26,7 @@ class AuthorQuiz extends Component {
 		};
 
 		this.onAnswerSelected = this.onAnswerSelected.bind(this);
+		this.onContinue = this.onContinue.bind(this);
 	}
 
 	componentDidMount() {
@@ -44,6 +45,14 @@ class AuthorQuiz extends Component {
 		});
 	}
 
+	onContinue() {
+		this.setState({
+			...this.state,
+			turnData: AuthorsApi.getTurnData(),
+			highlight: ''
+		})
+	}
+
 	render() {
 		return (
 			<Grid fluid={true}>
@@ -52,7 +61,8 @@ class AuthorQuiz extends Component {
 							books={this.state.turnData.books}
 						  highlight={this.state.highlight}
 						  onAnswerSelected={this.onAnswerSelected}/>
-				<Continue />
+				<Continue show={this.state.highlight === 'correct'}
+									onContinue={this.onContinue}/>
 				<Row>
 					<Col xs={12} sm={12}>
 						<Link to={'/add-author'}>Add Author</Link>
