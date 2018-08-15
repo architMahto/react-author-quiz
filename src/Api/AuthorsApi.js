@@ -6,6 +6,10 @@ class AuthorsApi {
 		return JSON.parse(JSON.stringify(item));
 	}
 
+	static addAuthor(author) {
+		AuthorsData.authors.push(author);
+	}
+
 	static getAllBooks() {
 		let authors = this.getAuthors();
 

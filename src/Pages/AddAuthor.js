@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 
 import AddAuthorForm from './AddAuthorForm';
 
+import AuthorsApi from '../Api/AuthorsApi';
+
 import './AddAuthor.css';
 
 class AddAuthor extends Component {
 	match;
 	state;
+	history;
 
 	constructor(props) {
 		super(props);
 
+		this.history = props.history;
 		this.match = props.match;
 		this.state = {
 			author: {
@@ -38,6 +42,12 @@ class AddAuthor extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+
+		let author = this.state.author;
+		delete author.bookInput;
+
+		AuthorsApi.addAuthor(author);
+		this.history.push('/');
 	}
 
 	onFieldChange(event) {
