@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Col, Grid, Row } from 'react-bootstrap';
 
 import Continue from '../Components/Continue';
 import Footer from '../Components/Footer';
@@ -45,16 +46,20 @@ class AuthorQuiz extends Component {
 
 	render() {
 		return (
-			<div className="container-fluid">
+			<Grid fluid={true}>
 				<Hero />
 				<Turn author={this.state.turnData.author}
 							books={this.state.turnData.books}
 						  highlight={this.state.highlight}
 						  onAnswerSelected={this.onAnswerSelected}/>
 				<Continue />
-				<Link to={'/add-author'}>Add Author</Link>
+				<Row>
+					<Col xs={12} sm={12}>
+						<Link to={'/add-author'}>Add Author</Link>
+					</Col>
+				</Row>
 				<Footer />
-			</div>
+			</Grid>
 		)
 	}
 }
